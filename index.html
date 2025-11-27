@@ -3,24 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>After School Club (Activities Only)</title>
+  <title>After School Clubs</title>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   
 <style>
-/* --- PREMIUM LIGHT CSS Variables --- */
+
 :root {
-  --bg: #f5f7fa; /* Very light grey background */
-  --panel: #ffffff; /* Pure white panels/cards */
-  --muted: #6c757d; /* Standard grey for subtle text */
+  --bg: #f5f7fa; 
+  --panel: #ffffff; 
+  --muted: #6c757d; 
   --card: #ffffff; 
-  --accent: #008080; /* Deep Teal/Cyan for primary brand color */
-  --accent-strong: #006666; /* Darker Teal for contrast/hover */
-  --glass-border: rgba(0, 0, 0, 0.1); /* Soft, subtle border */
-  --text-color: #212529; /* Dark text for contrast */
-  --shadow-color: rgba(0, 0, 0, 0.1); /* Soft, light shadows */
+  --accent: #008080; 
+  --accent-strong: #006666; 
+  --glass-border: rgba(0, 0, 0, 0.1); 
+  --text-color: #212529; 
+  --shadow-color: rgba(0, 0, 0, 0.1); 
 }
 
 * { 
@@ -35,7 +35,7 @@ body {
   overflow-x: hidden;
 }
 
-/* --- Header Styles --- */
+/*  Header Styles */
 header {
   display: flex;
   justify-content: center;
@@ -75,7 +75,7 @@ header .cart-btn {
 .cart-btn:hover { background: var(--accent); color: var(--panel); box-shadow: 0 4px 10px rgba(0, 128, 128, 0.3); }
 .cart-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-/* --- Main Content Area Styles --- */
+/*  Main Content Area Styles  */
 main {
   padding: 40px 28px;
   display: flex;
@@ -95,7 +95,7 @@ main {
   padding-left: 220px; 
 }
 
-/* --- VERTICAL SIDEBAR (Filter Bar) STYLES --- */
+
 .sidebar {
   position: fixed;
   left: 0;
@@ -151,7 +151,7 @@ main {
 }
 
 
-/* --- Grid and Card Styles --- */
+/*  Grid and Card Styles  */
 .grid {
   flex: 1;
   display: grid;
@@ -181,8 +181,8 @@ main {
 .card p { margin: 6px 0; color: var(--muted); font-size: 15px; }
 
 .stock-info { font-size: 14px; font-weight: 500; margin: 8px 0; }
-.stock-info.low { color: #dc3545; } /* Red for low stock */
-.stock-info.high { color: var(--accent); } /* Teal for high stock */
+.stock-info.low { color: #dc3545; } 
+.stock-info.high { color: var(--accent); } 
 
 .price { font-weight: 700; margin-top: 10px; font-size: 17px; color: var(--accent-strong); }
 
@@ -203,7 +203,7 @@ main {
 .add-btn:disabled { background: #ced4da; cursor: not-allowed; }
 
 
-/* --- Checkout and Cart Styles --- */
+/*  Checkout and Cart Styles  */
 .checkout-wrap {
   width: 100%;
   max-width: 1200px;
@@ -304,7 +304,7 @@ input:focus, select:focus { border-color: var(--accent); outline: none; box-shad
 .cart-item .remove-btn:hover { color: #dc3545; }
 
 
-/* --- Summary View Styles --- */
+/*  Summary View Styles  */
 .summary {
   background: var(--panel);
   border-radius: 20px;
@@ -364,9 +364,9 @@ input:focus, select:focus { border-color: var(--accent); outline: none; box-shad
 }
 .summary .back-btn:hover { background: var(--accent-strong); color: var(--panel); border-color: var(--accent-strong); }
 
-/* --- Transition Styles --- */
+/*  Transition Styles */
 .fade-slide-enter-active, .fade-slide-leave-active {
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .fade-slide-enter, .fade-slide-leave-to {
   opacity: 0;
@@ -378,7 +378,7 @@ input:focus, select:focus { border-color: var(--accent); outline: none; box-shad
 <body>
   <div id="app">
     <header>
-      <h1>After School Activities</h1>
+      <h1>After School Clubs</h1>
 
       <button class="cart-btn"
             @click="openCheckout"
@@ -564,9 +564,9 @@ input:focus, select:focus { border-color: var(--accent); outline: none; box-shad
       orderDate:'',
       products: [],
       isLoading: true,
-      apiURL: 'http://localhost:3000/api', 
+      apiURL: 'https://cst-3144-cw1.onrender.com/api', 
       
-      // Data to hold summary details after order is placed
+      
       summaryItems: [],
       summaryTotal: 0, 
 
@@ -591,14 +591,12 @@ input:focus, select:focus { border-color: var(--accent); outline: none; box-shad
         
         let list=[...this.products];
         
-        // Apply sorting logic
+        
         if(this.sortOption==='priceLow') list.sort((a,b)=>a.price-b.price);
         else if(this.sortOption==='priceHigh') list.sort((a,b)=>b.price-a.price);
-        else if(this.sortOption==='subject' || this.sortOption==='alpha') list.sort((a,b)=>a.subject.localeCompare(b.subject));
         else if(this.sortOption==='location') list.sort((a,b)=>a.location.localeCompare(b.location));
         else if(this.sortOption==='availability') list.sort((a,b)=>(b.stock-b.inCart)-(a.stock-a.inCart)); 
 
-        // Apply order
         if(this.orderType==='desc') list.reverse();
         
         return list;
@@ -607,7 +605,7 @@ input:focus, select:focus { border-color: var(--accent); outline: none; box-shad
       cartItemCount(){ return this.cart.length; },
 
       cartDetails(){
-        // Finds the full product details based on the MongoDB _id stored in the cart array
+       
         return this.cart.map(_id => this.products.find(p => p._id === _id)).filter(Boolean);
       },
 
@@ -641,7 +639,7 @@ input:focus, select:focus { border-color: var(--accent); outline: none; box-shad
           .then(data => {
             this.products = data.map(activity => ({
               ...activity,
-              inCart: 0 // Initialize local counter
+              inCart: 0 
             }));
             this.isLoading = false;
           })
@@ -675,7 +673,7 @@ input:focus, select:focus { border-color: var(--accent); outline: none; box-shad
 
       canAddToCart(p){ return p.inCart < p.stock; },
 
-      // Method to send the order data to the API (POST /api/orders)
+     
       confirmOrder(){
         if(!this.isFormComplete){
           alert('Please complete all required fields.');
@@ -710,7 +708,7 @@ input:focus, select:focus { border-color: var(--accent); outline: none; box-shad
           console.log("Order placed successfully:", data);
           this.orderDate = new Date().toLocaleString();
           
-          // --- FIX: SAVE SUMMARY DETAILS BEFORE CLEARING CART ---
+
           this.summaryItems = this.cartDetails; 
           this.summaryTotal = this.totalPrice; 
           // ----------------------------------------------------
@@ -718,7 +716,7 @@ input:focus, select:focus { border-color: var(--accent); outline: none; box-shad
           this.showCheckout = false;
           this.showSummary = true;
           
-          // Clear local cart state AFTER saving the summary
+          
           this.cart = [];
           this.products.forEach(p => p.inCart = 0);
         })
@@ -730,8 +728,7 @@ input:focus, select:focus { border-color: var(--accent); outline: none; box-shad
 
       backToMain(){
         this.showSummary=false;
-        this.fetchActivities(); // Re-fetch activities to ensure stock is updated
-        // Reset the form data and summary state
+        this.fetchActivities(); 
         this.order = { name:'', email:'', phone:'', country:'United Arab Emirates', city:'', studentNumber:'', year:'' };
         this.summaryItems = []; 
         this.summaryTotal = 0; 
