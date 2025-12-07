@@ -20,7 +20,6 @@
   --shadow: rgba(0, 0, 0, 0.08); 
 }
 
-/* Global Styles */
 * { box-sizing: border-box; }
 
 body {
@@ -31,7 +30,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Header */
+
 header {
   display: flex;
   justify-content: center;
@@ -74,7 +73,6 @@ header .cart-btn:disabled {
   cursor: not-allowed;
 }
 
-/* Main Content */
 main {
   padding: 40px 20px;
 }
@@ -87,7 +85,6 @@ main {
   padding-left: 220px;
 }
 
-/* Sidebar */
 .sidebar {
   position: fixed;
   top: 90px;
@@ -96,7 +93,7 @@ main {
   background: var(--panel);
   border-radius: 0 15px 15px 0;
   box-shadow: 4px 0 20px var(--shadow);
-  padding: 20px;
+  padding: 17px;
   transition: transform 0.3s ease;
 }
 .sidebar h3 {
@@ -132,7 +129,6 @@ main {
   background: var(--accent);
 }
 
-/* Grid & Cards */
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -185,7 +181,6 @@ main {
   cursor: not-allowed;
 }
 
-/* Checkout */
 .checkout-wrap {
   display: flex;
   flex-wrap: wrap;
@@ -204,12 +199,12 @@ main {
 }
 
 .checkout-right {
-  width: 300px;  /* reduced from 400px */
+  width: 300px;  
   min-width: 260px;
   border-radius: 16px;
   background: var(--panel);
   border: 1px solid var(--glass-border);
-  padding: 15px; /* reduced padding slightly */
+  padding: 15px; 
   box-shadow: 0 4px 15px var(--shadow-color);
 }
 
@@ -223,7 +218,7 @@ main {
 }
 
 .stock-info.low {
-  color: #ef4444; /* Bright red for low stock */
+  color: #ef4444; 
   font-weight: 700;
 }
 
@@ -241,7 +236,6 @@ input:focus, select:focus {
   box-shadow: 0 0 0 2px rgba(20,184,166,0.2);
 }
 
-/* Buttons */
 .place-order-btn, .summary .back-btn {
   width: 100%;
   padding: 14px 12px;
@@ -272,7 +266,6 @@ input:focus, select:focus {
   border-color: var(--accent-dark);
 }
 
-/* Cart List */
 .cart-list {
   display: flex;
   flex-direction: column;
@@ -301,7 +294,7 @@ input:focus, select:focus {
   position: fixed;
   top: 30px;
   right: 30px;
-  background: #22c55e; /* Green */
+  background: #22c55e; 
   color: #fff;
   padding: 16px 24px;
   border-radius: 12px;
@@ -327,10 +320,7 @@ input:focus, select:focus {
   to { opacity: 0; }
 }
 
-  
 
-
-/* --------- Summary View --------- */
 .summary {
   background: var(--bg);
   padding: 40px 20px;
@@ -359,7 +349,6 @@ input:focus, select:focus {
   font-weight: 700;
 }
 
-/* Boxes for info and clubs */
 .summary .info-box,
 .summary .clubs-box {
   background: var(--panel);
@@ -415,7 +404,6 @@ input:focus, select:focus {
   margin-bottom: 15px;
 }
 
-/* Transitions */
 .fade-slide-enter-active, .fade-slide-leave-active {
   transition: all 0.3s ease;
 }
@@ -424,7 +412,6 @@ input:focus, select:focus {
   transform: translateY(20px);
 }
 </style>
-
 
 </head>
 <body>
@@ -435,8 +422,7 @@ input:focus, select:focus {
             @click="openCheckout"
             :disabled="cart.length === 0">
       <i class="fas fa-cart-shopping"></i>
-      
-      <!-- Success Toast -->
+
 <div v-if="showSuccessMessage" class="success-popup">
   <i class="fas fa-check-circle"></i>
   Order placed successfully!
