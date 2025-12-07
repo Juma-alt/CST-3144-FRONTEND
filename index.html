@@ -431,10 +431,9 @@ input:focus, select:focus {
       <span>{{ cartItemCount || 0 }}</span>
     </button>
   </header>
-
   <main>
     <transition name="fade-slide" mode="out-in">
-      <!-- PRODUCTS VIEW -->
+   
       <div v-if="!showCheckout && !showSummary" key="products-view">
         <div class="content-wrap">
           <div v-if="isLoading" style="padding: 40px; color: var(--muted);">
@@ -711,8 +710,8 @@ new Vue({
     body:JSON.stringify(orderData)
   })
   .then(() => {
-  this.showSuccessMessage = true;         // Show the popup
-  setTimeout(() => this.showSuccessMessage = false, 3000); // Hide after 3s
+  this.showSuccessMessage = true;      //popup
+  setTimeout(() => this.showSuccessMessage = false, 3000); 
 
   this.orderDate = new Date().toLocaleString();
 
