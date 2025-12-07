@@ -14,15 +14,15 @@
   --bg: #b1b4b7; 
   --panel: #ffffff; 
   --muted: #6b7280; 
-  --accent: #02087b; 
-  --accent-dark: #02087b; 
+  --accent: #060351; 
+  --accent-dark: #060351; 
   --text-color: #010101; 
   --shadow: rgba(0, 0, 0, 0.08); 
 }
 
 * { box-sizing: border-box; }
 
-body {
+body {  
   margin: 0;
   font-family: "Poppins", sans-serif;
   background: var(--bg);
@@ -462,6 +462,15 @@ input:focus, select:focus {
 
           <!-- SIDEBAR -->
           <aside class="sidebar">
+            <h3>Search</h3>
+  <div style="margin-bottom: 20px;">
+    <input 
+      type="text" 
+      v-model="searchQuery" 
+      placeholder="Search name or location..." 
+      style="padding: 10px; font-size: 14px; margin-bottom: 0;"
+    >
+  </div>
             <h3>Sort By</h3>
             <label><input type="radio" v-model="sortOption" value="priceLow"> Price</label>
             <label><input type="radio" v-model="sortOption" value="location"> Location</label>
@@ -604,6 +613,7 @@ new Vue({
     sortOption: 'subject',
     orderType: 'asc',
     cart: [],
+    searchQuery: '',
     orderDate: '',
     products: [],
     isLoading: true,
@@ -626,20 +636,31 @@ new Vue({
     this.fetchActivities();
   },
   computed: {
-    sortedProducts() {
-      if (this.isLoading) return [];
+  sortedProducts() {
+    if (this.isLoading) return [];
 
-      let list = [...this.products];
+    // 1. Start with the full list
+    let list = [...this.products];
 
-      if (this.sortOption === 'priceLow') list.sort((a,b) => a.price - b.price);
-      else if (this.sortOption === 'location') list.sort((a,b) => a.location.localeCompare(b.location));
-      else if (this.sortOption === 'availability') list.sort((a,b) => (b.stock - b.inCart) - (a.stock - a.inCart));
-      else if (this.sortOption === 'subject') list.sort((a,b) => a.subject.localeCompare(b.subject));
+    // 2. Filter by Search Query (subject or location)
+    if (this.searchQuery.trim() !== '') {
+      const query = this.searchQuery.toLowerCase();
+      list = list.filter(prod => 
+        prod.subject.toLowerCase().includes(query) || 
+        prod.location.toLowerCase().includes(query)
+      );
+    }
 
-      if (this.orderType === 'desc') list.reverse();
+    // 3. Sort logic (Your existing code)
+    if (this.sortOption === 'priceLow') list.sort((a,b) => a.price - b.price);
+    else if (this.sortOption === 'location') list.sort((a,b) => a.location.localeCompare(b.location));
+    else if (this.sortOption === 'availability') list.sort((a,b) => (b.stock - b.inCart) - (a.stock - a.inCart));
+    else if (this.sortOption === 'subject') list.sort((a,b) => a.subject.localeCompare(b.subject));
 
-      return list;
-    },
+    if (this.orderType === 'desc') list.reverse();
+
+    return list;
+  },
     cartItemCount() { return this.cart.length; },
     cartDetails() {
       return this.cart
