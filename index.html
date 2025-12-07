@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   
 <style>
+
 :root {
   --bg: #f5f7fa; 
   --panel: #ffffff; 
@@ -22,7 +23,9 @@
   --shadow-color: rgba(0, 0, 0, 0.1); 
 }
 
-* { box-sizing: border-box; }
+* { 
+  box-sizing: border-box; 
+}
 
 body {
   margin: 0;
@@ -44,7 +47,16 @@ header {
   z-index: 1000;
   text-align: center;
 }
-header h1 { margin: 0; font-size: 28px; color: var(--text-color); font-weight: 700; width: 100%; text-align: center; }
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+  color: var(--text-color);
+  font-weight: 700;
+  width: 100%;
+  text-align: center;
+}
+
 header .cart-btn {
   position: absolute;
   right: 30px;
@@ -82,6 +94,7 @@ main {
   max-width: 1500px;
   padding-left: 220px; 
 }
+
 
 .sidebar {
   position: fixed;
@@ -136,22 +149,7 @@ main {
   border: 4px solid var(--accent);
   background-color: var(--panel);
 }
-.search-input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid var(--glass-border);
-  background: var(--bg);
-  margin-bottom: 15px;
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
-}
 
-.search-input:focus {
-  border-color: var(--accent);
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 128, 128, 0.2);
-}
 
 /*  Grid and Card Styles  */
 .grid {
@@ -204,6 +202,7 @@ main {
 .add-btn:hover { background: var(--accent-strong); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 128, 128, 0.3); }
 .add-btn:disabled { background: #ced4da; cursor: not-allowed; }
 
+
 /*  Checkout and Cart Styles  */
 .checkout-wrap {
   width: 100%;
@@ -234,7 +233,13 @@ main {
   padding-bottom: 5px;
 }
 
-label { font-size: 14px; color: var(--muted); display: block; margin-bottom: 8px; font-weight: 600; }
+label { 
+  font-size: 14px; 
+  color: var(--muted); 
+  display: block; 
+  margin-bottom: 8px; 
+  font-weight: 600; 
+}
 
 input, select {
   width: 100%;
@@ -247,6 +252,7 @@ input, select {
   transition: border-color 0.2s;
 }
 input:focus, select:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 0 2px rgba(0, 128, 128, 0.2); }
+
 
 .place-order-btn {
   margin-top: 20px;
@@ -274,8 +280,10 @@ input:focus, select:focus { border-color: var(--accent); outline: none; box-shad
   background: #f0f0f0;
   border-left: 4px solid var(--accent);
 }
+
 .cart-item .title { font-weight: 600; color: var(--text-color); }
 .cart-item div { color: var(--muted); }
+
 .total-row {
   display: flex;
   justify-content: space-between;
@@ -284,49 +292,17 @@ input:focus, select:focus { border-color: var(--accent); outline: none; box-shad
   margin-top: 15px;
   font-size: 18px;
 }
-.cart-item .remove-btn { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 18px; transition: color 0.2s; }
+
+.cart-item .remove-btn { 
+  background: none; 
+  border: none; 
+  color: var(--muted); 
+  cursor: pointer;
+  font-size: 18px;
+  transition: color 0.2s;
+}
 .cart-item .remove-btn:hover { color: #dc3545; }
 
-.success-popup {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 3000;
-}
-
-.success-box {
-  background: white;
-  padding: 40px 50px;
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-  animation: pop 0.3s ease;
-}
-
-.success-box i {
-  font-size: 60px;
-  color: #28a745;
-  margin-bottom: 15px;
-}
-
-.success-box h3 {
-  margin: 10px 0;
-  font-size: 22px;
-  color: #212529;
-}
-
-.success-box p {
-  color: #6c757d;
-  font-size: 14px;
-}
-
-@keyframes pop {
-  from { transform: scale(0.9); opacity: 0; }
-  to   { transform: scale(1); opacity: 1; }
-}
 
 /*  Summary View Styles  */
 .summary {
@@ -350,16 +326,31 @@ input:focus, select:focus { border-color: var(--accent); outline: none; box-shad
   margin: 30px 0;
   font-size: 16px;
 }
+
 .summary table th, .summary table td {
   padding: 12px;
   text-align: left;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   color: var(--text-color);
 }
-.summary table th { font-weight: 600; width: 35%; color: var(--muted); }
-.summary h3 { color: var(--accent); font-weight: 700; margin-top: 30px; }
-.summary table tfoot th, .summary table tfoot td { border-top: 2px solid var(--accent-strong) !important; font-size: 18px; }
+.summary table th {
+  font-weight: 600;
+  width: 35%;
+  color: var(--muted);
+}
+
+.summary h3 {
+  color: var(--accent);
+  font-weight: 700;
+  margin-top: 30px;
+}
+
+.summary table tfoot th, .summary table tfoot td {
+  border-top: 2px solid var(--accent-strong) !important;
+  font-size: 18px;
+}
 .summary table tfoot td { color: var(--accent); }
+
 .summary .back-btn {
   margin-top: 30px;
   background: transparent;
@@ -383,6 +374,7 @@ input:focus, select:focus { border-color: var(--accent); outline: none; box-shad
 }
 </style>
 
+</head>
 <body>
 <div id="app">
     <!-- HEADER -->
@@ -418,8 +410,8 @@ input:focus, select:focus { border-color: var(--accent); outline: none; box-shad
                 <h3>{{ prod.subject }}</h3>
                 <p>{{ prod.location }}</p>
 
-                <div class="stock-info" :class="(prod.stock - prod.inCart) <= 0 ? 'low' : 'high'">
-                  {{ Math.max(0, prod.stock - prod.inCart) }} available
+                <div class="stock-info">
+                  {{ prod.stock - prod.inCart }} available
                 </div>
 
                 <div class="price">AED {{ prod.price }}</div>
@@ -428,20 +420,13 @@ input:focus, select:focus { border-color: var(--accent); outline: none; box-shad
                         @click="addToCart(prod)"
                         :disabled="!canAddToCart(prod)">
                   <i class="fas fa-plus-circle"></i>
-                  {{ (prod.stock - prod.inCart) > 0 ? 'Add to cart' : 'Sold Out' }}
+                  {{ prod.inCart < prod.stock ? 'Add to cart' : 'Sold Out' }}
                 </button>
               </div>
             </div>
 
             <!-- SIDEBAR -->
             <aside class="sidebar">
-              <h3>Search</h3>
-              <input type="text" 
-                     v-model="searchQuery" 
-                     @input="fetchActivities" 
-                     placeholder="Search Activities" 
-                     class="search-input">
-
               <h3>Sort By</h3>
               <label><input type="radio" v-model="sortOption" value="priceLow"> Price</label>
               <label><input type="radio" v-model="sortOption" value="location"> Location</label>
@@ -455,6 +440,7 @@ input:focus, select:focus { border-color: var(--accent); outline: none; box-shad
 
           </div>
         </div>
+
 
         <!-- ---------------- CHECKOUT VIEW ---------------- -->
         <div v-else-if="showCheckout && !showSummary" key="checkout-view" class="checkout-wrap">
@@ -481,7 +467,7 @@ input:focus, select:focus { border-color: var(--accent); outline: none; box-shad
             <label>Year of Study</label>
             <select v-model="order.year">
               <option disabled value="">Select Year</option>
-              <option v-for="y in 12" :key="y">Year {{ y }}</option>
+              <option v-for="y in 12">Year {{ y }}</option>
             </select>
 
             <label>Student Number</label>
@@ -511,30 +497,22 @@ input:focus, select:focus { border-color: var(--accent); outline: none; box-shad
 
             <div v-if="cartDetails.length" class="cart-list">
               <div v-for="(item, i) in cartDetails" :key="i" class="cart-item">
-                <div>
-                  <div class="title">{{ item.subject }} ({{ item.location }})</div>
-                  <i :class="item.icon" style="color:var(--accent);"></i>
-                  <div style="font-size:13px;color:var(--muted);">Qty: {{ cartCountFor(item._id) }}</div>
-                </div>
-                <div style="text-align:right;">
-                  <div>AED {{ item.price }}</div>
-                  <div style="font-size:12px;color:var(--muted);"> {{ (cartCountFor(item._id) * item.price).toFixed(2) }}</div>
-                </div>
-                <div style="display:flex;flex-direction:column;gap:6px;margin-left:12px;">
-                  <button class="remove-btn" @click="removeOneFromCart(item._id)" title="Remove one">−</button>
-                  <button class="remove-btn" @click="removeAllFromCart(item._id)" title="Remove all">✕</button>
-                </div>
+                <div class="title">{{ item.subject }} ({{ item.location }})</div>
+                <div>AED {{ item.price }}</div>
+                <button class="remove-btn" @click="removeFromCart(i)">✕</button>
               </div>
 
               <div class="total-row">
                 <div style="font-weight:700;">Total</div>
-                <div style="font-weight:700;">AED {{ totalPrice.toFixed(2) }}</div>
+                <div style="font-weight:700;">AED {{ totalPrice }}</div>
               </div>
             </div>
 
             <div v-else>No items selected.</div>
           </aside>
         </div>
+
+
 
         <!-- ---------------- SUMMARY VIEW ---------------- -->
         <div v-else-if="showSummary" key="summary-view" class="summary">
@@ -553,6 +531,7 @@ input:focus, select:focus { border-color: var(--accent); outline: none; box-shad
           </table>
 
           <h3>Selected Clubs</h3>
+
           <table>
             <thead>
               <tr>
@@ -562,14 +541,14 @@ input:focus, select:focus { border-color: var(--accent); outline: none; box-shad
             </thead>
             <tbody>
               <tr v-for="(item, i) in summaryItems" :key="i">
-                <td>{{ item.subject }} × {{ summaryCounts[item._id] || 1 }}</td>
-                <td>{{ (item.price * (summaryCounts[item._id] || 1)).toFixed(2) }}</td>
+                <td>{{ item.subject }}</td>
+                <td>{{ item.price }}</td>
               </tr>
             </tbody>
             <tfoot>
               <tr>
                 <th>Total</th>
-                <td style="font-weight:700;">AED {{ summaryTotal.toFixed(2) }}</td>
+                <td style="font-weight:700;">AED {{ summaryTotal }}</td>
               </tr>
             </tfoot>
           </table>
@@ -580,20 +559,9 @@ input:focus, select:focus { border-color: var(--accent); outline: none; box-shad
         </div>
 
       </transition>
-
-      <!-- ---------------- GLOBAL SUCCESS POPUP ---------------- -->
-      <transition name="fade-slide">
-        <div v-if="showSuccessPopup" class="success-popup">
-          <div class="success-box">
-            <i class="fas fa-check-circle"></i>
-            <h3>Order Placed Successfully</h3>
-            <p>Your clubs have been registered</p>
-          </div>
-        </div>
-      </transition>
-
     </main>
 </div>
+
 
 <!-- ---------------- VUE SCRIPT ---------------- -->
 <script>
@@ -603,7 +571,6 @@ new Vue({
   data: {
     showCheckout: false,
     showSummary: false,
-    showSuccessPopup: false,
     sortOption: 'subject',
     orderType: 'asc',
     cart: [],
@@ -611,82 +578,57 @@ new Vue({
     products: [],
     isLoading: true,
     apiURL: 'https://cst-3144-cw1.onrender.com/api',
-    searchQuery: '',
+
     summaryItems: [],
     summaryTotal: 0,
-    summaryCounts: {},
+
     order: {
-      name:'', email:'', phone:'', country:'United Arab Emirates', city:'', studentNumber:'', year:''
+      name:'',
+      email:'',
+      phone:'',
+      country:'United Arab Emirates',
+      city:'',
+      studentNumber:'',
+      year:''
     },
-    searchTimer: null
   },
 
   created() {
-    this.loadCartFromStorage();
     this.fetchActivities();
   },
 
   computed: {
     sortedProducts() {
-  if (this.isLoading) return [];
+      if (this.isLoading) return [];
 
-  let q = this.searchQuery.trim().toLowerCase();
+      let list = [...this.products];
 
-  let list = this.products.filter(p => {
-    return (
-      (p.subject && p.subject.toLowerCase().includes(q)) ||
-      (p.location && p.location.toLowerCase().includes(q)) ||
-      (p.icon && p.icon.toLowerCase().includes(q)) ||
-      (p.category && p.category.toLowerCase().includes(q)) ||
-      (p.club && p.club.toLowerCase().includes(q)) ||
-      (p.title && p.title.toLowerCase().includes(q))
-    );
-  });
+      if (this.sortOption === 'priceLow')
+        list.sort((a,b) => a.price - b.price);
 
-  // Sorting
-  if (this.sortOption === "priceLow") {
-    list.sort((a, b) =>
-      this.orderType === "asc" ? a.price - b.price : b.price - a.price
-    );
-  } else if (this.sortOption === "location") {
-    list.sort((a, b) =>
-      this.orderType === "asc"
-        ? a.location.localeCompare(b.location)
-        : b.location.localeCompare(a.location)
-    );
-  } else if (this.sortOption === "subject") {
-    list.sort((a, b) =>
-      this.orderType === "asc"
-        ? a.subject.localeCompare(b.subject)
-        : b.subject.localeCompare(a.subject)
-    );
-  } else if (this.sortOption === "availability") {
-    list.sort((a, b) => {
-      let aAvail = a.stock - a.inCart;
-      let bAvail = b.stock - b.inCart;
-      return this.orderType === "asc" ? aAvail - bAvail : bAvail - aAvail;
-    });
-  }
+      else if (this.sortOption === 'location')
+        list.sort((a,b) => a.location.localeCompare(b.location));
 
-  return list;
-},
+      else if (this.sortOption === 'availability')
+        list.sort((a,b) => (b.stock - b.inCart) - (a.stock - a.inCart));
 
-    cartItemCount() { 
-      return this.cart.length; },
+      if (this.orderType === 'desc') list.reverse();
+
+      return list;
+    },
+
+    cartItemCount() {
+      return this.cart.length;
+    },
 
     cartDetails() {
-      const uniqueIds = Array.from(new Set(this.cart));
-      return uniqueIds.map(id => this.products.find(p => p._id === id)).filter(Boolean);
+      return this.cart
+        .map(id => this.products.find(p => p._id === id))
+        .filter(Boolean);
     },
 
     totalPrice() {
-      const counts = {};
-      this.cart.forEach(id => counts[id] = (counts[id] || 0) + 1);
-      return Object.keys(counts).reduce((sum, id) => {
-        const p = this.products.find(x => x._id === id);
-        if (!p) return sum;
-        return sum + (Number(p.price || 0) * counts[id]);
-      }, 0);
+      return this.cartDetails.reduce((s,i) => s + i.price, 0);
     },
 
     isFormComplete() {
@@ -698,83 +640,98 @@ new Vue({
         this.order.phone &&
         this.cart.length > 0
       );
-    }
+    },
   },
 
   methods: {
-    saveCartToStorage() { localStorage.setItem('asc_cart', JSON.stringify(this.cart)); },
-    loadCartFromStorage() { const raw = localStorage.getItem('asc_cart'); if (raw) this.cart = JSON.parse(raw); },
 
     fetchActivities() {
-  clearTimeout(this.searchTimer);
-  this.searchTimer = setTimeout(async () => {
-    try {
       this.isLoading = true;
-      const res = await fetch(`${this.apiURL}/activities?search=${this.searchQuery}`);
-      const data = await res.json();
-      this.products = data.map(p => ({ ...p, inCart: 0 }));
-      this.isLoading = false;
-    } catch (err) {
-      console.error("Error loading activities", err);
-      this.isLoading = false;
-    }
-  }, 300);
-},
 
-    _fetchActivitiesNow() {
-      this.isLoading = true;
-      const q = this.searchQuery.trim();
-      const path = q ? `/search?q=${encodeURIComponent(q)}` : '/activities';
-      fetch(`${this.apiURL}${path}`)
-        .then(async r => { if (!r.ok) throw new Error(await r.text()); return r.json(); })
+      fetch(`${this.apiURL}/activities`)
+        .then(r => r.json())
         .then(data => {
-          const arr = Array.isArray(data) ? data : (data.activities || []);
-          this.products = arr.map(a => {
-            const p = {...a};
-            p.price = Number(p.price) || 0;
-            p.stock = Number(p.stock) || 0;
-            p.inCart = this.cart.filter(id => id === p._id).length;
-            return p;
-          });
+          this.products = data.map(a => ({ ...a, inCart: 0 }));
           this.isLoading = false;
         })
-        .catch(err => { console.error(err); this.products = []; this.isLoading = false; });
+        .catch(err => {
+          console.error("Could not fetch activities:", err);
+          this.products = [];
+          this.isLoading = false;
+        });
     },
 
-    cartCountFor(id) { return this.cart.filter(i => i === id).length; },
-    canAddToCart(p) { return p && this.cartCountFor(p._id) < (p.stock || 0); },
+    openCheckout() {
+      this.showCheckout = true;
+      window.scrollTo({top:0,behavior:"smooth"});
+    },
 
-    addToCart(prod) { if (!this.canAddToCart(prod)) return; this.cart.push(prod._id); const p = this.products.find(x => x._id === prod._id); if (p) p.inCart = this.cartCountFor(prod._id); this.saveCartToStorage(); },
-    removeOneFromCart(id) { const idx = this.cart.indexOf(id); if(idx!==-1) this.cart.splice(idx,1); const p = this.products.find(x=>x._id===id); if(p) p.inCart=this.cartCountFor(id); this.saveCartToStorage(); },
-    removeAllFromCart(id) { this.cart = this.cart.filter(i=>i!==id); const p=this.products.find(x=>x._id===id); if(p) p.inCart=0; this.saveCartToStorage(); },
+    closeCheckout() {
+      this.showCheckout = false;
+    },
 
-    openCheckout() { if(!this.cart.length) { alert('Your cart is empty.'); return; } this.showCheckout = true; window.scrollTo({top:0,behavior:"smooth"}); },
-    closeCheckout() { this.showCheckout=false; },
+    canAddToCart(p) {
+      return p.inCart < p.stock;
+    },
+
+    addToCart(prod) {
+      if (this.canAddToCart(prod)) {
+        this.cart.push(prod._id);
+        prod.inCart++;
+      }
+    },
+
+    removeFromCart(i) {
+      const id = this.cart[i];
+      const p = this.products.find(p => p._id === id);
+      if (p) p.inCart--;
+      this.cart.splice(i,1);
+    },
 
     confirmOrder() {
-      if (!this.isFormComplete) { alert("Please complete all fields and add at least one club to your cart."); return; }
-      const itemsMap = {};
-      this.cart.forEach(id=>itemsMap[id]=(itemsMap[id]||0)+1);
-      this.summaryItems = Object.keys(itemsMap).map(id=>this.products.find(p=>p._id===id)).filter(Boolean);
-      this.summaryCounts = itemsMap;
-      this.summaryTotal = this.totalPrice;
-      this.orderDate = new Date().toLocaleString();
+      if (!this.isFormComplete) {
+        alert("Please complete all fields.");
+        return;
+      }
 
-      this.cart = []; this.saveCartToStorage();
-      this.products.forEach(p=>p.inCart=0);
+      const orderData = {
+        student: this.order,
+        items: this.cart.map(id => ({ id, quantity:1 })),
+        totalPrice: this.totalPrice,
+      };
 
-      this.showCheckout=false;
-      this.showSuccessPopup=true;
+      fetch(`${this.apiURL}/orders`, {
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body:JSON.stringify(orderData)
+      })
+      .then(r => r.json())
+      .then(() => {
+        this.orderDate = new Date().toLocaleString();
 
-      setTimeout(()=>{
-        this.showSuccessPopup=false;
-        this.showSummary=true;
-      }, 3000);
+        this.summaryItems = this.cartDetails;
+        this.summaryTotal = this.totalPrice;
+
+        this.showCheckout = false;
+        this.showSummary = true;
+
+        this.cart = [];
+        this.products.forEach(p => p.inCart = 0);
+      })
+      .catch(err => {
+        console.error("ORDER ERROR:", err);
+        alert("Order failed.");
+      });
     },
 
-    backToMain() { this.showSummary=false; this.showCheckout=false; this._fetchActivitiesNow(); }
+    backToMain() {
+      this.showSummary = false;
+      this.showCheckout = false;
+    }
+
   }
 });
 </script>
+
 </body>
 </html>
