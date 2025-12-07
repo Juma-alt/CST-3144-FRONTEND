@@ -141,8 +141,8 @@ main {
 
 .card {
   background: var(--panel);
-  border-radius: 16px;
-  padding: 25px 20px;
+  border-radius: 12px;
+  padding: 15px 10px;
   text-align: center;
   border: 1px solid rgba(0,0,0,0.05);
   box-shadow: 0 4px 15px var(--shadow);
@@ -440,7 +440,7 @@ input:focus, select:focus {
             <i class="fas fa-spinner fa-spin"></i> Loading activities...
           </div>
           <div v-else-if="!sortedProducts.length" style="padding:40px;color:var(--muted);">
-            Page Not Found!
+            No Activities Found!
           </div>
           <div v-else class="grid">
             <div v-for="prod in sortedProducts" :key="prod._id" class="card">
@@ -494,7 +494,7 @@ input:focus, select:focus {
 
           <label>Country</label>
           <select v-model="order.country">
-            <option>United Arab Emirates</option>
+            <option value="United Arab Emirates">United Arab Emirates</option>
           </select>
 
           <label>City (Emirate)</label>
@@ -503,6 +503,10 @@ input:focus, select:focus {
             <option>Dubai</option>
             <option>Abu Dhabi</option>
             <option>Sharjah</option>
+            <option>Ajman</option>
+            <option>Fujairah</option>
+            <option>Umm Al Quwain</option>
+            <option>Ras Al Khaimah</option>
           </select>
 
           <label>Year of Study</label>
