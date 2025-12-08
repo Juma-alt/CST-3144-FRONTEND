@@ -31,22 +31,27 @@ body {
 }
 
 
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 30px;
-  background: var(--panel);
-  box-shadow: 0 4px 20px var(--shadow);
-  position: relative;
-  z-index: 1000;
+header h1 {
+  font-size: 52px;
+  font-weight: 800;
+  color: #0a2a68;
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 20px;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-header h1 {
-  margin: 0;
-  font-size: 28px;
-  font-weight: 700;
+header h1::after {
+  content: "";
+  width: 110px;
+  height: 5px;
+  background: linear-gradient(to right, #0a2a68, #6ea3ff);
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 6px;
 }
+
 
 header .cart-btn {
   position: absolute;
@@ -86,10 +91,12 @@ main {
 }
 
 .sidebar {
-  position: fixed;
-  top: 90px;
-  left: 0;
-  width: 220px;
+    width: 200px;       /* adjust as you like */
+    height: 100vh;       /* sidebar only covers 60% vertical height */
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
   background: var(--panel);
   border-radius: 0 15px 15px 0;
   box-shadow: 4px 0 20px var(--shadow);
@@ -643,10 +650,8 @@ new Vue({
   sortedProducts() {
     if (this.isLoading) return [];
 
-    // 1. Start with the full list
     let list = [...this.products];
 
-    // 2. Filter by Search Query (subject or location)
     if (this.searchQuery.trim() !== '') {
       const query = this.searchQuery.toLowerCase();
       list = list.filter(prod => 
@@ -655,7 +660,6 @@ new Vue({
       );
     }
 
-    // 3. Sort logic (Your existing code)
     if (this.sortOption === 'priceLow') list.sort((a,b) => a.price - b.price);
     else if (this.sortOption === 'location') list.sort((a,b) => a.location.localeCompare(b.location));
     else if (this.sortOption === 'availability') list.sort((a,b) => (b.stock - b.inCart) - (a.stock - a.inCart));
